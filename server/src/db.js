@@ -1,14 +1,14 @@
 const mongoose = require('mongoose');
-// const { MONGO_DBA, DB_USER, DB_PASSWORD } = require('./config.js');
+const { USERNAME_MONGODB, PASSWORD_MONGODB, DBANAME_MONGODB } = require('./config/env.d');
 
-
-
-mongoose.connect(`mongodb+srv://turnowave:d3CarJG7VWoVeofg@main.nquntlx.mongodb.net/`, {
+mongoose.connect(`${USERNAME_MONGODB}:${PASSWORD_MONGODB}@${DBANAME_MONGODB}`, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
-});
+})
+    .then(() => console.log('I <3 MongoDB... '))
+    .catch(e => console.log('(_8(|) Douh!', e))
 
-console.log('[db] Connected to');
+
 
 
 
