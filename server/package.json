@@ -9,6 +9,9 @@
     "dev": "nodemon index.js"
   },
   "keywords": [],
+  "engines": {
+    "node": "18.14.0"
+  },
   "author": "",
   "license": "ISC",
   "dependencies": {
