@@ -1,5 +1,5 @@
 const jwt = require("jsonwebtoken");
-const { SECRET } = require("../../config/config");
+const { SIGN_TOKEN } = require("../config/env.d");
 const User = require("../models/Users.model.js");
 
 class ClassAuth {
@@ -13,7 +13,7 @@ class ClassAuth {
     );
     if (!matchPassword) throw new Error(`Password or email invalid`);
 
-    const token = jwt.sign({ id: accountFound._id }, SECRET, {
+    const token = jwt.sign({ id: accountFound._id }, SIGN_TOKEN, {
       expiresIn: 86400,
     });
 

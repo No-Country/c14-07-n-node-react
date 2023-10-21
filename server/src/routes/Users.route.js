@@ -1,6 +1,6 @@
 const { Router } = require("express");
 const { verifyToken, apikey, isUser } = require("../middlewares/AuthJWT.js");
-// const { ClassUsers } = require("../controllers/users/Users.controller.js");
+const { ClassUsers } = require("../controllers/Users.controller.js");
 const routerUsers = Router();
 
 routerUsers.post("/", async (req, res, next) => {
