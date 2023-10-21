@@ -1,7 +1,2 @@
-module.exports = {
-    saludar: () => {
-
-    }
-}
 
 
