@@ -1,9 +1,8 @@
-const { Router } = require("express");
+const router = require("express").Router();
 const { ClassAuth } = require("../controllers/Auth.controller.js");
 const { body, validationResult } = require("express-validator");
-const routerAuth = Router();
 
-routerAuth.post(
+router.post(
   "/login",
   body("email").not().isEmpty().trim().isEmail(),
   async (req, res, next) => {
@@ -14,7 +13,7 @@ routerAuth.post(
           `The field ${errors.errors[0].param} is ${errors.errors[0].msg} `
         );
       }
-      
+
       const { email, password } = req.body;
       const response = await ClassAuth.login(email, password);
       res.status(200).json(response);
@@ -24,7 +23,7 @@ routerAuth.post(
   }
 );
 
-routerAuth.post(
+router.post(
   "/signup",
   async (req, res, next) => {
     try {
@@ -43,6 +42,6 @@ routerAuth.post(
   }
 );
 
-module.exports = { 
-    routerAuth
+module.exports = {
+  routerAuth: router,
 };

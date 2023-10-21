@@ -1,12 +1,12 @@
 const jwt = require("jsonwebtoken");
-const { SECRET } = require("../../config/config");
-const { ClassUsers } = require("../controllers/Users/Users.controller");
+const { SIGN_TOKEN } = require("../config/env.d");
+const { ClassUsers } = require("../controllers/Users.controller");
 
 const verifyToken = async (req, res, next) => {
   try {
     const token = req.headers["token"];
     if (!token) throw new Error("Token not send");
-    const decoded = jwt.verify(token, SECRET);
+    const decoded = jwt.verify(token, SIGN_TOKEN);
     req.accountId = decoded.id;
     next();
   } catch (error) {
