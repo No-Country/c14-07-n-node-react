@@ -1,16 +1,14 @@
-const { Router } = require('express')
-const controllers = require('../controllers')
+const router = require("express").Router();
+const { routerAuth } = require("./Auth.route");
+const { routerUsers } = require("./Users.route.js");
 
+router.get('/', (req, res) => {
+  res.send('¡Bienvenido a mi API!');
+});
 
+router.use("/api/auth", routerAuth);
+router.use("/api/users", routerUsers);
 
-const route = Router()
-
-
-route.get('/', (req, res) => {
-    const a = controllers.saludar()
-    res.send(a)
-})
-
-
-
-module.exports = route
+module.exports = {
+   router
+};

@@ -1,6 +1,7 @@
 const express = require("express");
 const morgan = require("morgan");
 const cors = require("cors");
+const { router } = require("./routes/index");
 
 ////// Inicialización
 const app = express()
@@ -17,7 +18,7 @@ app.use(cors());
 
 
 ////// Routes
-app.use("/test", require("./routes/index.js"))
+app.use("/test", router);
 
 
 
