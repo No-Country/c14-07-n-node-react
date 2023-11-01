@@ -27,7 +27,12 @@ const login = async (req, res, next) => {
   }
 };
 
+const profile = async (req, res, next) => {
+  return res.send('Entro profile');
+};
+
 module.exports = {
   signup,
   login,
+  profile,
 };
