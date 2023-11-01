@@ -1,4 +1,4 @@
-const { badRequestError } = require('../utils/errors/HttpErrorFactory');
+const { badRequestError, notFoundError } = require('../utils/errors/HttpErrorFactory');
 
 const bcrypt = require("bcrypt");
 const User = require('../models/AuthModel');
@@ -45,6 +45,29 @@ const signup = async (body) => {
   }
 };
 
+const login = async (body) => {
+  const { email, password } = body;
+
+  try {
+    const findUserByEmail = await User.findOne({ email });
+    if (!findUserByEmail) throw notFoundError('El usuario no existe');
+
+    const validatePassword = await bcrypt.compare(password, findUserByEmail.password);
+    if (!validatePassword) throw notFoundError('Credenciales no válidas');
+
+    const token = await createAccessToken({ id: findUserByEmail.id });
+
+    return {
+      message: `Welcome ${findUserByEmail.first_name} ${findUserByEmail.surname}!`,
+      email: findUserByEmail.email,
+      token,
+    };
+  } catch (err) {
+    return err;
+  }
+};
+
 module.exports = {
   signup,
+  login,
 };
