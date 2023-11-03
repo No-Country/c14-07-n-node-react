@@ -28,6 +28,29 @@
     color: #fff;
 }
 
+.nav-options ul li:hover {
+    background-color: #007bff;
+    color: #fff;
+    transition: background-color 0.3s, color 0.3s;
+    /* Agrega una transición suave */
+}
+
+/* Estilo para la etiqueta <li> activa */
+.nav-options ul li.active {
+    background-color: #007bff;
+    color: #fff;
+  }
+  
+  /* Estilo para el enlace (<a>) dentro de la etiqueta <li> activa */
+  .nav-options ul li.active a {
+    color: #fff;
+  }
+  
+  /* Estilo al pasar el mouse por encima del enlace (<a>) dentro de la etiqueta <li> activa */
+  .nav-options ul li.active a:hover {
+    color: #f0f0f0;
+  }
+
 .auth-buttons {
     display: flex;
     align-items: center;
@@ -47,4 +70,8 @@
 .login-button:hover,
 .signup-button:hover {
     background-color: #0056b3;
+}
+
+.a-color {
+    color: white;
 }

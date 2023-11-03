@@ -1,0 +1,39 @@
+
+.about-us-container {
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+h2 {
+    font-size: 50px;
+    margin-bottom: 70px;
+}
+
+p {
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+.barber-list {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+}
+
+.barber-card {
+    text-align: center;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin: 10px;
+}
+
+.social-icons a {
+    color: #007bff;
+    margin: 5px;
+    font-size: 18px;
+    text-decoration: none;
+}
