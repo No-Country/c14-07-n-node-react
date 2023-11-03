@@ -15,6 +15,17 @@ const createBarber = async (req, res, next) => {
   }
 };
 
+const getBarbers = async (req, res, next) => {
+  try {
+    const response = await BarberService.getBarbers(req.body);
+
+    return res.send(response);
+  } catch (err) {
+    return next(errorHandler(err, `Error on ${getBarber.name}`));
+  }
+};
+
 module.exports = {
   createBarber,
+  getBarbers,
 };
