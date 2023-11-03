@@ -1,4 +1,4 @@
-const { badRequestError } = require('../utils/errors/HttpErrorFactory');
+const { badRequestError, notFoundError } = require('../utils/errors/HttpErrorFactory');
 const bcrypt = require("bcrypt");
 const Barber = require('../models/BarberModel');
 
@@ -23,7 +23,12 @@ const createBarber = async (body) => {
   }
 };
 
+const getBarbers = async (body)  => {
+  return Barber.find();
+};
+
 module.exports = {
   createBarber,
+  getBarbers,
 };
 
